@@ -27,15 +27,12 @@ public class CollisionChek {
 
                ((Human) entity).x = 1700;
                ((Human) entity).direction = "left";
-               // ((Human)entity).direction = "right";
-
+            
             }
 
             if (((Human) entity).x > 1700) {
                ((Human) entity).x = 1;
                ((Human) entity).direction = "right";
-               // ((Human)entity).direction = "left";
-
             }
 
             if (other instanceof Player) {
@@ -72,11 +69,9 @@ public class CollisionChek {
                      mypanel.Point += 100;
                      mypanel.Amout_dead++;
                   }
-                  // human.x = 2000;
-                  // human.y = 2000;
-                  // human.humanAni_Timer.stop();
+                  
                   human.human_bleed_Ani.start();
-                  // human.human_bleed_Ani.setRepeats(false);
+                 
                }
 
                Rectangle playerBounds = new Rectangle(player.hitbox_x, player.hitbox_y, player.hitbox_Width,

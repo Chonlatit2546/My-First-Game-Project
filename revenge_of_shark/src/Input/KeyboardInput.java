@@ -2,20 +2,12 @@ package Input;
 
 import java.awt.event.*;
 
-import main.Mypanel;
-
-
-
-
 
 public class KeyboardInput implements KeyListener{
 
-   public boolean upPressed,downPressed,leftPressed,rightPressed,spacePressed,gameStop;
-   Mypanel mypanel;
+   public boolean upPressed,downPressed,leftPressed,rightPressed,spacePressed;
+   
 
-   public KeyboardInput(Mypanel mypanel){
-      this.mypanel = mypanel;
-   }
    @Override
    public void keyTyped(KeyEvent e) {
       
@@ -44,14 +36,7 @@ public class KeyboardInput implements KeyListener{
          spacePressed = true;
          System.out.println("space is press!");
          break;
-         case KeyEvent.VK_ESCAPE:
-         if(gameStop == false)
-            gameStop = true;
-         else if (gameStop ==true)
-            gameStop = false;
-         mypanel.gameStop();
-         System.out.println("Esc is press!");
-         break;
+         
       }
      
    }

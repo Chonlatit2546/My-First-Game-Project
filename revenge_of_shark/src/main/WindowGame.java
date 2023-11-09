@@ -14,20 +14,10 @@ public class WindowGame extends JFrame{
 
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setTitle("Revenge of shark");
-      // setSize(1700,800);
       setResizable(false);
-      //setLayout(null);
       add(currentPanel);
       pack();
       setVisible(true);
-      //add(mypanel);
-      //pack();
-      //setLocationRelativeTo(null);
-      //setVisible(true);
-      //mypanel.startGameThread();
-
-      
-
    }
 
    public void setCurrentPanel(JPanel newPanel) {
@@ -52,7 +42,6 @@ public class WindowGame extends JFrame{
       getContentPane().removeAll();
       Mypanel mypanel = new Mypanel();
       add(mypanel);
-      //revalidate();
       mypanel.setFocusable(true);
       mypanel.requestFocus();
       mypanel.startGameThread();

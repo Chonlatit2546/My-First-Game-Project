@@ -6,7 +6,7 @@ import Input.KeyboardInput;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Point;
+
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,15 +38,8 @@ public class Player extends Entity {
    Image Shark[];
    Image Shark_turnleft[];
 
-   // public int hitbox_x = x + 20;
-   // public int hitbox_y = y + 60;
-   // public int hitbox_Width = 150;
-   // public int hitbox_Height = 60;
-
    public int previus_x;
    public int previus_y;
-
-   public String direction_y = "down";
 
    public Player(Mypanel mypanel, KeyboardInput key_Input) {
 
@@ -60,20 +53,11 @@ public class Player extends Entity {
       previus_x = x;
       previus_y = y;
 
-      // hitbox_x = this.x+20;
-      // hitbox_y = this.y+60;
-      // hitbox_Width = this.width-50;
-      // hitbox_Height = this.height-150;
-
       hitbox_x = this.x+20;
       hitbox_y = this.y+60;
       hitbox_Width = this.width-60;
       hitbox_Height = this.height-150;
 
-      // System.out.println("shark" + hitbox_x);
-      // System.out.println("shark" + hitbox_y);
-      // System.out.println("shark" + hitbox_Width);
-      // System.out.println("shark" + hitbox_Height);
       direction = "right";
       
 
@@ -100,24 +84,18 @@ public class Player extends Entity {
       SharkAni_timer.start();
    }
 
-   public void setDefualtValues() {
-
-      x = 100;
-      y = 400;
-      speed = 3;
-   }
-
+  
    public void update() {
       previus_x = x;
       previus_y = y;
       if (kInput.upPressed == true) {
          y -= speed;
          hitbox_y = this.y+60;
-         direction_y = "up";
+         
       } else if (kInput.downPressed == true) {
          y += speed;
          hitbox_y = this.y+60;
-         direction_y = "down";
+         
       } else if (kInput.leftPressed == true) {
          x -= speed;
          hitbox_x = this.x+20;
@@ -150,10 +128,6 @@ public class Player extends Entity {
    }
 
    public void draw(Graphics g) {
-
-      //g.setColor(Color.PINK);
-      //g.drawRect(x+20, y+60, 150, 60);
-      //g.drawRect(hitbox_x, hitbox_y, hitbox_Width, hitbox_Height);
 
       if (direction == "right")
          g.drawImage(Shark[Ani], x, y, width, height, null);

@@ -10,7 +10,6 @@ public class Entity {
    public int speed;
 
    public String direction;
-   //public String direction_y;
 
    public Rectangle Hitbox;
    
@@ -20,13 +19,4 @@ public class Entity {
    public int hitbox_Width;
    public int hitbox_Height;
 
-   public boolean collisionOn = false;
-
-   public void updateHitbox_x(int x){
-      hitbox_x = x;
-   }
-   
-   public void updateHitbox_y(int y){
-      hitbox_y = y;
-   }
 }

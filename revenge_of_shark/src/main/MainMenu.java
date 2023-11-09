@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 
-import javax.accessibility.Accessible;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -30,8 +30,6 @@ public class MainMenu extends JPanel {
    URL Name = this.getClass().getResource("Name.png");
    Image name = new ImageIcon(Name).getImage();
 
-   
-
    public MainMenu(WindowGame windowGame) {
 
       this.windowGame = windowGame;
@@ -39,12 +37,9 @@ public class MainMenu extends JPanel {
       setPreferredSize(new Dimension(1700, 800));
       setLayout(null);
 
-      //ImageIcon start = new ImageIcon(start);
-      
       jbtStart.setBounds(500, 600, 200, 100);
       jbtExit.setBounds(1000, 600, 200, 100);
       
-      //jbtStart.setPreferredSize(new Dimension(200,100));
       jbtStart.setIcon(new ImageIcon(start));
       jbtExit.setIcon(new ImageIcon(exit));
 
@@ -52,8 +47,6 @@ public class MainMenu extends JPanel {
       jbtExit.addActionListener(new ExitGame());
       add(jbtStart);
       add(jbtExit);
-
-      
    }
 
    @Override

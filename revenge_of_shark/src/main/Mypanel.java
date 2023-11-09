@@ -2,7 +2,7 @@ package main;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import java.util.Iterator;
+
 
 import Entity.Bird;
 import Entity.Entity;
@@ -26,9 +26,8 @@ public class Mypanel extends JPanel implements Runnable {
    Thread gameThread;
    public CollisionChek cCheck;
    public List<Entity> entities;
-   public List<Entity> generate_human;
    private long startTime = System.currentTimeMillis();;  // เวลาเริ่มต้นเกม
-   private long elapsedTime = System.currentTimeMillis() - startTime; // เวลาที่ผ่านไป
+   private long elapsedTime = System.currentTimeMillis() - startTime; 
    public int Amout_dead = 0;
 
    public int Point = 0;
@@ -58,15 +57,11 @@ public class Mypanel extends JPanel implements Runnable {
 
       setPreferredSize(new Dimension(1700, 800));
 
-      // setSize(1700,800);
-      // this.setDoubleBuffered(true);
-
-      kInput = new KeyboardInput(this);
+      kInput = new KeyboardInput();
       addKeyListener(kInput);
       this.setFocusable(true);
 
       entities = new ArrayList<>();
-      generate_human = new ArrayList<>();
 
       player = new Player(this, kInput);
 
@@ -97,7 +92,6 @@ public class Mypanel extends JPanel implements Runnable {
       human5.direction = "left";
       human5.hitbox_x = human5.x + 30;
       human5.hitbox_y = human5.y + 70;
-
 
       bird = new Bird(this);
 
@@ -155,18 +149,12 @@ public class Mypanel extends JPanel implements Runnable {
       for(Entity e : entities){
          cCheck.Check(e);
 
-         // if(e instanceof Human){
-         //    if(((Human)e).direction == "bleed_left" || ((Human)e).direction == "bleed_right" ){
-         //       Entity h = new Human(this);
-         //       entities.add(h);
-         //       generate_human.add(h);
-         //    }
-         // }
+         
       }
 
       long currentTime = System.currentTimeMillis();
       elapsedTime = (60000 - (currentTime - startTime))/1000;
-      //elapsedTime = (60000 - (System.currentTimeMillis() - startTime))/1000;
+      
 
       if(elapsedTime == 0 || Amout_dead == 6){
 
@@ -184,21 +172,7 @@ public class Mypanel extends JPanel implements Runnable {
       }
    }
 
-   public void gameStop(){
-      System.out.println("Stopping the game...");
-      if(kInput.gameStop == true){
-         gameThread.interrupt();
-      try{
-         gameThread.join();
-      }
-      catch(Exception e){System.out.println("nothing happen");}
-      }else if(kInput.gameStop == false){
-         if (!gameThread.isAlive()) {
-            gameThread = new Thread(new Mypanel()); // สร้างเทรดใหม่
-            gameThread.start(); // เริ่มเทรดใหม่
-        }
-      }
-   }
+ 
 
    @Override
    public void paintComponent(Graphics g) {
@@ -209,20 +183,13 @@ public class Mypanel extends JPanel implements Runnable {
       g.setFont(font);
       g.drawString("Your point : "+ String.valueOf(Point), 30,20);
       g.drawString("Time :" + String.valueOf(elapsedTime), 30,40);
+
       human.draw(g);
       human1.draw(g);
       human2.draw(g);
       human3.draw(g);
       human4.draw(g);
       human5.draw(g);
-
-      if(generate_human != null){
-         for(Entity e: generate_human){
-         
-            ((Human)e).draw(g);
-         
-         }
-      }
 
       player.draw(g);
       bird.draw(g);

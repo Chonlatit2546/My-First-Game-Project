@@ -38,10 +38,7 @@ public class Human extends Entity {
 
    int Ani_bleed = 0;
    public Timer human_bleed_Ani = new Timer(500, new BleedAni());
-   // public int hitbox_x = x + 20;
-   // public int hitbox_y = y + 60;
-   // public int hitbox_Width = 100;
-   // public int hitbox_Height = 40;
+   
 
    public int previus_x;
    public int previus_y;
@@ -63,11 +60,6 @@ public class Human extends Entity {
       hitbox_y = y + 70;
       hitbox_Width = 100;
       hitbox_Height = 40;
-
-      // System.out.println("human_X"+hitbox_x);
-      // System.out.println("human_Y"+hitbox_y);
-      // System.out.println("human_W"+hitbox_Width);
-      // System.out.println("human_H"+hitbox_Height);
 
       Hitbox = new Rectangle(hitbox_x, hitbox_y, hitbox_Width, hitbox_Height);
 
@@ -104,8 +96,6 @@ public class Human extends Entity {
       }else if(direction == "bleed_left"){
          g.drawImage(human_bleed_left[Ani_bleed], this.x, this.y, 170, 170, null);
       }
-      // g.drawRect(x+20, y+60, hitbox_Width, hitbox_Height);
-      //g.drawRect(hitbox_x, hitbox_y, hitbox_Width, hitbox_Height);
 
    }
 
@@ -126,27 +116,8 @@ public class Human extends Entity {
 
       previus_x = x + 1;
       
-
-      // if (x <= 0) {
-
-      //    this.direction = "right";
-      //    //this.speed *= -1;
-      // }
-
-      // if (x >= 1700) {
-      //    System.out.println("x >= 1700");
-      //    this.direction = "left";
-      //    //this.speed *= -1;
-      // }
-
-      // if (x > 1700) {
-      // x = 0;
-      // }
-
       Hitbox.setBounds(hitbox_x, hitbox_y, hitbox_Width, hitbox_Height);
-      // Hitbox.setBounds(x + 20, y + 60, hitbox_Width, hitbox_Height);
-
-      // mypanel.cCheck.Check(this);
+      
 
    }
 
@@ -164,19 +135,10 @@ public class Human extends Entity {
       @Override
       public void actionPerformed(ActionEvent e) {
 
-         // humanAni_Timer.stop();
-         // Ani_bleed++;
-
-         // if(Ani_bleed > 3){
-         // Ani_bleed = 0;
-         // }
          try {
-            // human_bleed_Ani.stop();
-            // Ani_bleed++;
-   
+            
             humanAni_Timer.stop();
-            
-            
+                
             Ani_bleed++;
 
             if (Ani_bleed > 2) {
